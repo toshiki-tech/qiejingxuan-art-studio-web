@@ -1,9 +1,10 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
 import { Locale } from '@/lib/types';
 
-export default function ContactPage({ params: { locale } }: { params: { locale: Locale } }) {
-  const t = useTranslations('contact');
+export default async function ContactPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('contact');
 
   return (
     <div className="py-20 bg-neutral-50 min-h-screen">
@@ -28,6 +29,12 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold text-neutral-700 mb-2">
+                  {t('info.contact')}
+                </h3>
+                <p className="text-neutral-600">登坂仁美（Tosaka Hitomi）</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-neutral-700 mb-2">
                   {t('info.email')}
                 </h3>
                 <p className="text-neutral-600">info@qiejingxuan.com</p>
@@ -36,16 +43,16 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                 <h3 className="text-lg font-semibold text-neutral-700 mb-2">
                   {t('info.phone')}
                 </h3>
-                <p className="text-neutral-600">+86 123 4567 8900</p>
+                <p className="text-neutral-600">080-2088-0426</p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-neutral-700 mb-2">
                   {t('info.address')}
                 </h3>
                 <p className="text-neutral-600">
-                  {locale === 'zh' && '中国北京市朝阳区艺术区123号'}
-                  {locale === 'ja' && '中国北京市朝陽区アート地区123号'}
-                  {locale === 'en' && '123 Art District, Chaoyang, Beijing, China'}
+                  {locale === 'zh' && '日本东京都港区六本木 7-22-2'}
+                  {locale === 'ja' && '〒106-0032 東京都港区六本木7-22-2'}
+                  {locale === 'en' && '7-22-2 Roppongi, Minato-ku, Tokyo 106-0032, Japan'}
                 </p>
               </div>
             </div>

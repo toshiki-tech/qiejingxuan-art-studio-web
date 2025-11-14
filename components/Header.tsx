@@ -12,6 +12,7 @@ export default function Header() {
 
   const navItems = [
     { key: 'home', href: '/' },
+    { key: 'news', href: '/news' },
     { key: 'artists', href: '/artists' },
     { key: 'works', href: '/works' },
     { key: 'commissions', href: '/commissions' },

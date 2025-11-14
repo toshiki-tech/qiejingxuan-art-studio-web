@@ -1,9 +1,10 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Locale } from '@/lib/types';
 
-export default function CommissionsPage({ params: { locale } }: { params: { locale: Locale } }) {
-  const t = useTranslations('commissions');
+export default async function CommissionsPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('commissions');
 
   const steps = [
     { number: 1, key: 'step1' },

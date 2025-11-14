@@ -1,10 +1,11 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { getAllArtworks } from '@/lib/data/artworks';
 import ArtworkCard from '@/components/ArtworkCard';
 import { Locale } from '@/lib/types';
 
-export default function WorksPage({ params: { locale } }: { params: { locale: Locale } }) {
-  const t = useTranslations('works');
+export default async function WorksPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('works');
   const allArtworks = getAllArtworks();
 
   return (

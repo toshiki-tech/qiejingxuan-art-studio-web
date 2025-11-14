@@ -4,6 +4,7 @@
     "artists": "Artists",
     "works": "Works",
     "commissions": "Commissions",
+    "news": "News",
     "about": "About",
     "contact": "Contact"
   },
@@ -30,7 +31,9 @@
     "cta": {
       "title": "Begin Your Art Journey",
       "subtitle": "Whether collecting or commissioning, we provide professional services",
-      "button": "Contact Us"
+      "description": "Qiejingxuan is a professional platform connecting artists and collectors. With Eastern aesthetics at our core and a global market perspective, we are dedicated to discovering and promoting exceptional contemporary artworks.",
+      "button": "Contact Us",
+      "learnMore": "Learn More"
     }
   },
   "artists": {
@@ -92,22 +95,86 @@
     }
   },
   "about": {
-    "title": "About Qiejingxuan",
-    "subtitle": "Connecting Artists with the World",
-    "story": {
-      "title": "Our Story",
-      "content": "Founded in 2024, Qiejingxuan is an art organization focused on contemporary art promotion and commission services. We believe art should be seen and appreciated by more people, dedicated to providing artists with exhibition platforms and art enthusiasts with high-quality artworks and custom services."
+    "hero": {
+      "title": "Connecting Artists with the World",
+      "subtitle": "Qiejingxuan is dedicated to discovering and promoting talented contemporary artists. Through professional curatorial services and a global perspective, we enable exceptional artworks to transcend geographical boundaries, reaching wider audiences for appreciation and collection."
+    },
+    "introduction": {
+      "title": "About Qiejingxuan",
+      "content1": "Founded in 2024 and headquartered in Tokyo, Qiejingxuan is an international art organization specializing in the promotion of Asian contemporary art. We represent exceptional artists from China, Japan, South Korea, Europe, and the Americas, covering diverse artistic forms including painting, sculpture, installation, and new media.",
+      "content2": "We believe art is a language that transcends cultures and a bridge connecting hearts. Through carefully curated exhibitions, professional art consulting, and custom services, we help collectors discover valuable artworks while providing artists with international exhibition platforms and career development support.",
+      "imageAlt": "Qiejingxuan Art Space"
     },
     "mission": {
       "title": "Our Mission",
-      "content": "Through professional curation and services, we make excellent artworks visible, recognize artists' value, and integrate art into more people's lives."
+      "content": "To discover and promote contemporary artists with unique artistic languages and profound thinking. Through professional curation, consulting, and promotion services, we ensure exceptional artworks receive the recognition they deserve, making art an integral part of more people's lives. We strive to build bridges between artists and collectors, facilitating dialogue and exchange between Eastern and Western art."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To become one of Asia's most influential contemporary art promotion platforms. With professional services and an international perspective, we aim to bring more exceptional Asian artists to the world stage, making contemporary art a vital force that connects different cultures, inspires thought, and enriches lives."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive professional services for artists and collectors",
+      "service1": {
+        "title": "Artist Representation",
+        "description": "Providing comprehensive career development support and international promotion services for talented artists"
+      },
+      "service2": {
+        "title": "Curation & Exhibitions",
+        "description": "Curating high-quality art exhibitions to provide optimal presentation for artists' works"
+      },
+      "service3": {
+        "title": "Art Commissions",
+        "description": "Offering professional art customization and consulting services for private and corporate clients"
+      },
+      "service4": {
+        "title": "International Exchange",
+        "description": "Facilitating exchange between Eastern and Western art communities, expanding artists' international markets"
+      }
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "subtitle": "Milestones of our growth",
+      "milestone1": {
+        "title": "Qiejingxuan Founded",
+        "description": "Established in Tokyo, beginning representation of our first three exceptional artists. Established brand positioning centered on Eastern aesthetics with an international market focus."
+      },
+      "milestone2": {
+        "title": "International Expansion",
+        "description": "Represented artists grew to five, with works exhibited in New York, Singapore, and Hong Kong. Organized our first 'Oriental Impressions' themed exhibition, gaining widespread industry recognition."
+      }
+    },
+    "team": {
+      "title": "Core Team",
+      "subtitle": "Professional team of seasoned art industry experts",
+      "founder": {
+        "name": "Hitomi Tosaka",
+        "role": "Founder & Director",
+        "bio": "With 15 years of experience in the art industry, having worked at multiple internationally renowned galleries with deep understanding of the Asian contemporary art market."
+      },
+      "curator": {
+        "name": "Chen Siyuan",
+        "role": "Chief Curator",
+        "bio": "Graduate of University of the Arts London, has curated multiple significant contemporary art exhibitions, excelling at discovering artists' unique value."
+      },
+      "director": {
+        "name": "Yuko Tanaka",
+        "role": "Art Director",
+        "bio": "Senior art advisor with extensive experience in art authentication, market analysis, and collection consulting."
+      }
     },
     "values": {
       "title": "Core Values",
       "quality": "Quality First",
       "integrity": "Integrity",
       "innovation": "Innovation",
-      "service": "Dedicated Service"
+      "service": "Professional Service"
+    },
+    "cta": {
+      "title": "Begin Your Journey with Us",
+      "subtitle": "Whether you're an artist or collector, we look forward to connecting with you",
+      "button": "Contact Us"
     }
   },
   "contact": {
@@ -128,6 +195,7 @@
     },
     "info": {
       "title": "Contact Information",
+      "contact": "Contact Person",
       "email": "Email",
       "phone": "Phone",
       "address": "Address"
@@ -139,9 +207,11 @@
     }
   },
   "footer": {
-    "description": "Focused on contemporary art promotion and commission services",
+    "description": "An independent art studio dedicated to contemporary art presentation and communication. Offering art promotion, curatorial services, and commissioned creations.",
     "rights": "All rights reserved",
-    "quickLinks": "Quick Links",
+    "explore": "Explore",
+    "services": "Services",
+    "contact": "Contact",
     "followUs": "Follow Us"
   },
   "common": {

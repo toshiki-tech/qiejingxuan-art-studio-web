@@ -9,7 +9,7 @@ export const artworks: Artwork[] = [
       ja: '山水の間',
       en: 'Between Mountains and Waters',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+1',
+    image: '/images/artworks/artwork-1.jpg',
     year: '2023',
     medium: {
       zh: '纸本水墨',
@@ -26,7 +26,7 @@ export const artworks: Artwork[] = [
       ja: '霧隠れ',
       en: 'Hidden in Mist',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+2',
+    image: '/images/artworks/artwork-2.jpg',
     year: '2023',
     medium: {
       zh: '宣纸水墨',
@@ -43,7 +43,7 @@ export const artworks: Artwork[] = [
       ja: '流れる時',
       en: 'Flowing Time',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+3',
+    image: '/images/artworks/artwork-3.jpg',
     year: '2024',
     medium: {
       zh: '混合媒介',
@@ -61,7 +61,7 @@ export const artworks: Artwork[] = [
       ja: '再生の森',
       en: 'Regeneration Forest',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+4',
+    image: '/images/artworks/artwork-4.jpg',
     year: '2023',
     medium: {
       zh: '再生木材与金属',
@@ -78,7 +78,7 @@ export const artworks: Artwork[] = [
       ja: '自然のこだま',
       en: 'Echo of Nature',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+5',
+    image: '/images/artworks/artwork-5.jpg',
     year: '2023',
     medium: {
       zh: '装置艺术',
@@ -95,7 +95,7 @@ export const artworks: Artwork[] = [
       ja: '循環',
       en: 'Circulation',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+6',
+    image: '/images/artworks/artwork-6.jpg',
     year: '2024',
     medium: {
       zh: '雕塑',
@@ -113,7 +113,7 @@ export const artworks: Artwork[] = [
       ja: 'デジタルドリーム',
       en: 'Digital Dreams',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+7',
+    image: '/images/artworks/artwork-7.jpg',
     year: '2023',
     medium: {
       zh: '数字艺术',
@@ -130,7 +130,7 @@ export const artworks: Artwork[] = [
       ja: 'アイデンティティの破片',
       en: 'Fragments of Identity',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+8',
+    image: '/images/artworks/artwork-8.jpg',
     year: '2024',
     medium: {
       zh: '新媒体装置',
@@ -147,7 +147,7 @@ export const artworks: Artwork[] = [
       ja: '文化の交差',
       en: 'Cultural Intersection',
     },
-    image: 'https://placehold.co/800x1000/e5e5e5/737373?text=Artwork+9',
+    image: '/images/artworks/artwork-9.jpg',
     year: '2024',
     medium: {
       zh: '互动装置',

@@ -1,0 +1,31 @@
+{
+  // 文件编码设置
+  "files.encoding": "utf8",
+  
+  // 自动检测文件编码（重要！）
+  "files.autoGuessEncoding": true,
+  
+  // 为特定文件类型或路径指定编码
+  "[plaintext]": {
+    "files.encoding": "utf8"
+  },
+  
+  // 如果有Shift-JIS文件，可以添加类似配置：
+  // "files.associations": {
+  //   "**/*.sjis.txt": "plaintext",
+  //   "**/legacy/**/*": "plaintext"
+  // },
+  
+  // 行尾符设置
+  "files.eol": "\n",
+  
+  // TypeScript/JavaScript设置
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+  // 其他编辑器设置
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true
+}
+

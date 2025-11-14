@@ -116,6 +116,12 @@ const images = {
       url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400',
       filename: 'tanaka-yuko.jpg'
     }
+  ],
+  about: [
+    {
+      url: 'https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=800&h=800',
+      filename: 'art-space.jpg'
+    }
   ]
 };
 
@@ -176,11 +182,25 @@ async function main() {
     }
   }
 
+  console.log('\n📥 下载关于页面图片...');
+  const aboutDir = path.join(__dirname, '../public/images/about');
+  createDir(aboutDir);
+  
+  for (const img of images.about) {
+    try {
+      const filepath = path.join(aboutDir, img.filename);
+      await downloadImage(img.url, filepath);
+    } catch (error) {
+      console.error(`❌ 下载失败 ${img.filename}:`, error.message);
+    }
+  }
+
   console.log('\n✨ 所有图片下载完成！');
   console.log('📁 艺术家头像: public/images/artists/');
   console.log('📁 作品图片: public/images/artworks/');
   console.log('📁 新闻图片: public/images/news/');
   console.log('📁 团队照片: public/images/team/');
+  console.log('📁 关于页面: public/images/about/');
   console.log('\n💡 下一步: 运行 node scripts/update-image-paths.js 更新图片路径');
 }
 

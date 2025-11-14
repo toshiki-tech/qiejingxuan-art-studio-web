@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { Artwork, Locale } from '@/lib/types';
+import { getArtistBySlug } from '@/lib/data/artists';
 
 interface ArtworkCardProps {
   artwork: Artwork;
@@ -7,27 +9,47 @@ interface ArtworkCardProps {
 }
 
 export default function ArtworkCard({ artwork, locale }: ArtworkCardProps) {
+  const artist = getArtistBySlug(artwork.artistSlug);
+
   return (
-    <div className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-      <div className="relative aspect-[3/4] overflow-hidden">
+    <Link
+      href={`/${locale}/works/${artwork.id}`}
+      className="group block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+    >
+      <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100">
         <Image
           src={artwork.image}
           alt={artwork.title[locale]}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-300"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-neutral-900 mb-1 group-hover:text-primary-600 transition-colors">
+      <div className="p-5">
+        <h3 className="text-lg font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors line-clamp-1">
           {artwork.title[locale]}
         </h3>
-        <p className="text-sm text-neutral-600 mb-1">{artwork.medium[locale]}</p>
-        <div className="flex justify-between text-sm text-neutral-500">
+        
+        {/* Artist Info */}
+        {artist && (
+          <div className="flex items-center gap-2 mb-3">
+            <div className="relative w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
+              <Image
+                src={artist.avatar}
+                alt={artist.name[locale]}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <p className="text-sm text-neutral-600 truncate">{artist.name[locale]}</p>
+          </div>
+        )}
+
+        <p className="text-sm text-neutral-500 mb-2">{artwork.medium[locale]}</p>
+        <div className="flex justify-between text-xs text-neutral-400">
           <span>{artwork.year}</span>
           <span>{artwork.size}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
-

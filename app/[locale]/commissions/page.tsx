@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import CommissionsHero from '@/components/CommissionsHero';
 import { Locale } from '@/lib/types';
 
 export default async function CommissionsPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -22,19 +23,8 @@ export default async function CommissionsPage({ params }: { params: Promise<{ lo
 
   return (
     <div className="bg-neutral-50 min-h-screen">
-      {/* Hero */}
-      <section className="relative py-32 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
-        {/* Decorative circles */}
-        <div className="absolute top-10 right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">{t('title')}</h1>
-            <p className="text-xl md:text-2xl opacity-90">{t('subtitle')}</p>
-          </div>
-        </div>
-      </section>
+      {/* Hero - 使用背景图的Hero区块 */}
+      <CommissionsHero />
 
       {/* Process - Artistic Flow */}
       <section className="py-24 bg-white relative overflow-hidden">

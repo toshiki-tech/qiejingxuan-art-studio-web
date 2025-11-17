@@ -59,3 +59,10 @@ img {
   height: auto;
 }
 
+/* 自定义工具类 - 径向渐变 */
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+

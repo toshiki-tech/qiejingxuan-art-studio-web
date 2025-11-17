@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { getNewsBySlug, getAllNews } from '@/lib/data/news';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const allNews = getAllNews();
   const locales: Locale[] = ['zh', 'ja', 'en'];

@@ -3,6 +3,12 @@ import Image from 'next/image';
 import { getAllNews } from '@/lib/data/news';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
+export function generateStaticParams() {
+  return [{ locale: 'zh' }, { locale: 'ja' }, { locale: 'en' }];
+}
+
 export default async function NewsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const allNews = getAllNews();

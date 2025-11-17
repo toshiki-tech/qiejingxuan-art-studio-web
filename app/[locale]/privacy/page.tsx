@@ -1,6 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'privacy' });

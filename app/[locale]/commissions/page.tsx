@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CommissionsHero from '@/components/CommissionsHero';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 export default async function CommissionsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'commissions' });

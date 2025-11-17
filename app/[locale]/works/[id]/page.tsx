@@ -6,6 +6,9 @@ import { getArtworkById, getAllArtworks } from '@/lib/data/artworks';
 import { getArtistBySlug } from '@/lib/data/artists';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   const allArtworks = getAllArtworks();
   const locales: Locale[] = ['zh', 'ja', 'en'];

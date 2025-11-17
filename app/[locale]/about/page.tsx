@@ -3,6 +3,8 @@ import Image from 'next/image';
 import AboutHero from '@/components/AboutHero';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 export default async function AboutPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });

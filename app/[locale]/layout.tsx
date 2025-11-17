@@ -10,13 +10,12 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
+type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}) {
+};
+
+export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   // Validate locale
   if (!locales.includes(locale as any)) {

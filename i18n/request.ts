@@ -6,9 +6,17 @@ export const locales = ['zh', 'ja', 'en'] as const;
 export type Locale = (typeof locales)[number];
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  // Validate that the incoming `locale` parameter is valid
+  // For static export, requestLocale should come from the route params
+  // If it's not available, we'll use the default locale
   let locale = await requestLocale;
-  if (!locale || !locales.includes(locale as Locale)) {
+  
+  // If locale is not provided (e.g., during static generation), use default
+  if (!locale) {
+    locale = 'zh';
+  }
+  
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
 

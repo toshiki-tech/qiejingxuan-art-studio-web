@@ -9,6 +9,8 @@ import ArtworkCard from '@/components/ArtworkCard';
 import HeroSection from '@/components/HeroSection';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 export default async function HomePage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale });

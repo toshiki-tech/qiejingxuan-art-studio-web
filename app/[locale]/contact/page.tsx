@@ -2,6 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/ContactForm';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 export default async function ContactPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'contact' });

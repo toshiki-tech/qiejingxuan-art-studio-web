@@ -5,6 +5,8 @@ import WorksGallery from '@/components/WorksGallery';
 import WorksHero from '@/components/WorksHero';
 import { Locale } from '@/lib/types';
 
+export const dynamic = 'force-static';
+
 export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'ja' }, { locale: 'en' }];
 }

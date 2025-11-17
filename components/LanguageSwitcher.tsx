@@ -3,6 +3,7 @@
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
+import { getBasePath } from '@/lib/utils/path';
 
 const languages = [
   { code: 'zh', name: '中文', flag: '🇨🇳', label: 'CN' },
@@ -31,7 +32,26 @@ export default function LanguageSwitcher() {
   }, []);
 
   const handleLanguageChange = (langCode: string) => {
-    const newPathname = pathname.replace(`/${locale}`, `/${langCode}`);
+    // 获取 basePath（如果有）
+    const basePath = getBasePath();
+    
+    // 移除 basePath 和当前 locale，获取路径的其余部分
+    let pathWithoutLocale = pathname;
+    if (basePath) {
+      pathWithoutLocale = pathname.replace(basePath, '');
+    }
+    
+    // 移除开头的 locale 部分（如 /ja, /zh, /en）
+    pathWithoutLocale = pathWithoutLocale.replace(`/${locale}`, '') || '/';
+    
+    // 如果路径是根路径，确保有斜杠
+    if (pathWithoutLocale === '') {
+      pathWithoutLocale = '/';
+    }
+    
+    // 构建新路径：basePath + /新locale + 路径其余部分
+    const newPathname = `${basePath}/${langCode}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+    
     router.push(newPathname);
     setIsOpen(false);
   };

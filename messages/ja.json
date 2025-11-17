@@ -214,7 +214,12 @@
     "explore": "探索",
     "services": "サービス",
     "contact": "お問い合わせ",
-    "followUs": "フォローする"
+    "followUs": "フォローする",
+    "locations": "東京 | 北京 | 上海",
+    "emailLabel": "メール",
+    "phoneLabel": "電話",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfUse": "利用規約"
   },
   "common": {
     "learnMore": "もっと見る",

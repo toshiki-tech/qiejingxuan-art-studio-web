@@ -41,9 +41,7 @@ export default function Footer() {
             </Link>
             <p className="text-sm mb-4 leading-relaxed">{t('footer.description')}</p>
             <p className="text-xs text-neutral-400">
-              {locale === 'zh' && '东京 | 北京 | 上海'}
-              {locale === 'ja' && '東京 | 北京 | 上海'}
-              {locale === 'en' && 'Tokyo | Beijing | Shanghai'}
+              {t('footer.locations')}
             </p>
           </div>
 
@@ -93,9 +91,7 @@ export default function Footer() {
             <div className="space-y-3 text-sm mb-6">
               <div>
                 <p className="text-neutral-400 mb-1">
-                  {locale === 'zh' && '邮箱'}
-                  {locale === 'ja' && 'メール'}
-                  {locale === 'en' && 'Email'}
+                  {t('footer.emailLabel')}
                 </p>
                 <a 
                   href="mailto:info@qiejingxuan.com" 
@@ -106,9 +102,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-neutral-400 mb-1">
-                  {locale === 'zh' && '电话'}
-                  {locale === 'ja' && '電話'}
-                  {locale === 'en' && 'Phone'}
+                  {t('footer.phoneLabel')}
                 </p>
                 <a 
                   href="tel:08012345678" 
@@ -173,17 +167,13 @@ export default function Footer() {
                 href={`/${locale}/privacy`} 
                 className="hover:text-primary-400 transition-colors"
               >
-                {locale === 'zh' && '隐私政策'}
-                {locale === 'ja' && 'プライバシーポリシー'}
-                {locale === 'en' && 'Privacy Policy'}
+                {t('footer.privacyPolicy')}
               </Link>
               <Link 
                 href={`/${locale}/terms`} 
                 className="hover:text-primary-400 transition-colors"
               >
-                {locale === 'zh' && '使用条款'}
-                {locale === 'ja' && '利用規約'}
-                {locale === 'en' && 'Terms of Use'}
+                {t('footer.termsOfUse')}
               </Link>
             </div>
           </div>

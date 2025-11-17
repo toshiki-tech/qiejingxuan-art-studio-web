@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { getArtworkById, getAllArtworks } from '@/lib/data/artworks';
 import { getArtistBySlug } from '@/lib/data/artists';
 import { Locale } from '@/lib/types';
+import { withBasePath } from '@/lib/utils/path';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -57,7 +58,7 @@ export default async function ArtworkDetailPage({
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
               <Image
-                src={artwork.image}
+                src={withBasePath(artwork.image)}
                 alt={artwork.title[locale]}
                 fill
                 className="object-cover"
@@ -81,7 +82,7 @@ export default async function ArtworkDetailPage({
                 >
                   <div className="relative w-12 h-12 rounded-full overflow-hidden">
                     <Image
-                      src={artist.avatar}
+                      src={withBasePath(artist.avatar)}
                       alt={artist.name[locale]}
                       fill
                       className="object-cover"

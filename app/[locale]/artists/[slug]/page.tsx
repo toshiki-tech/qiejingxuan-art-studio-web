@@ -5,6 +5,7 @@ import { getArtistBySlug, getAllArtistSlugs } from '@/lib/data/artists';
 import { getArtworksByArtist } from '@/lib/data/artworks';
 import ArtworkCard from '@/components/ArtworkCard';
 import { Locale } from '@/lib/types';
+import { withBasePath } from '@/lib/utils/path';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -49,7 +50,7 @@ export default async function ArtistDetailPage({
                 <div className="relative aspect-square rounded-full overflow-hidden border-8 border-white shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent z-10" />
                   <Image
-                    src={artist.avatar}
+                    src={withBasePath(artist.avatar)}
                     alt={artist.name[locale]}
                     fill
                     className="object-cover grayscale-[10%]"

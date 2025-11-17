@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getNewsBySlug, getAllNews } from '@/lib/data/news';
 import { Locale } from '@/lib/types';
+import { withBasePath } from '@/lib/utils/path';
 
 export const dynamic = 'force-static';
 export const dynamicParams = false;
@@ -90,7 +91,7 @@ export default async function NewsDetailPage({
           {/* Image */}
           <div className="relative aspect-video overflow-hidden">
             <Image
-              src={newsItem.image}
+              src={withBasePath(newsItem.image)}
               alt={newsItem.title[locale]}
               fill
               className="object-cover"

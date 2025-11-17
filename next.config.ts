@@ -10,6 +10,7 @@ const basePath = process.env.NODE_ENV === 'production' ? `/${repoName}` : '';
 const nextConfig: NextConfig = {
   output: 'export', // 启用静态导出
   basePath, // 配置基础路径
+  assetPrefix: basePath, // 确保静态资源也使用 basePath
   images: {
     unoptimized: true, // GitHub Pages 不支持 Next.js Image 优化
     remotePatterns: [

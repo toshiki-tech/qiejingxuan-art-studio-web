@@ -1,0 +1,38 @@
+<svg width="320" height="160" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .logo-text { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Arial', sans-serif; 
+        font-feature-settings: 'kern' 1;
+        text-rendering: optimizeLegibility;
+      }
+    </style>
+  </defs>
+  
+  <!-- 浅灰色背景 -->
+  <rect width="320" height="160" fill="#D3D3D3"/>
+  
+  <!-- 图形元素：画框/窗口（6格窗格） -->
+  <g transform="translate(100, 80)">
+    <!-- 主矩形（圆角） -->
+    <rect x="-40" y="-25" width="80" height="50" rx="4" ry="4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+    
+    <!-- 内部两条横线（分成3行） -->
+    <line x1="-40" y1="-8.33" x2="40" y2="-8.33" stroke="#000000" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    <line x1="-40" y1="8.33" x2="40" y2="8.33" stroke="#000000" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    
+    <!-- 内部一条竖线（分成2列，形成6格） -->
+    <line x1="0" y1="-25" x2="0" y2="25" stroke="#000000" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    
+    <!-- 底座 -->
+    <line x1="-40" y1="25" x2="-30" y2="30" stroke="#000000" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    <line x1="40" y1="25" x2="30" y2="30" stroke="#000000" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    <line x1="-30" y1="30" x2="30" y2="30" stroke="#000000" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+  </g>
+  
+  <!-- 中文文字：且静轩（与图形垂直居中对齐） -->
+  <text x="168" y="78" class="logo-text" font-size="34" font-weight="600" fill="#000000" text-anchor="start" dominant-baseline="middle">且静軒</text>
+  
+  <!-- 英文文字：ART STUDIO -->
+  <text x="168" y="110" class="logo-text" font-size="17" font-weight="400" fill="#000000" text-anchor="start" dominant-baseline="middle" letter-spacing="2">ART STUDIO</text>
+</svg>

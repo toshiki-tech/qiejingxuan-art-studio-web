@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 
 export default function Footer() {
@@ -24,7 +25,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">且静轩</h3>
+            <Link 
+              href={`/${locale}`} 
+              className="inline-block mb-4 hover:opacity-80 transition-opacity duration-200"
+              aria-label="且静轩 ART STUDIO"
+            >
+              <Image
+                src="/images/logo/logo-light.svg"
+                alt="且静轩 ART STUDIO"
+                width={180}
+                height={56}
+                className="h-10 w-auto"
+              />
+            </Link>
             <p className="text-sm mb-4 leading-relaxed">{t('footer.description')}</p>
             <p className="text-xs text-neutral-400">
               {locale === 'zh' && '东京 | 北京 | 上海'}
@@ -97,10 +110,10 @@ export default function Footer() {
                   {locale === 'en' && 'Phone'}
                 </p>
                 <a 
-                  href="tel:08020880426" 
+                  href="tel:08012345678" 
                   className="hover:text-primary-400 transition-colors"
                 >
-                  080-2088-0426
+                  080-1234-5678
                 </a>
               </div>
             </div>
@@ -155,16 +168,22 @@ export default function Footer() {
               © {new Date().getFullYear()} 且静轩 Qiejingxuan. {t('footer.rights')}.
             </p>
             <div className="flex gap-6 text-xs text-neutral-400">
-              <a href="#" className="hover:text-primary-400 transition-colors">
+              <Link 
+                href={`/${locale}/privacy`} 
+                className="hover:text-primary-400 transition-colors"
+              >
                 {locale === 'zh' && '隐私政策'}
                 {locale === 'ja' && 'プライバシーポリシー'}
                 {locale === 'en' && 'Privacy Policy'}
-              </a>
-              <a href="#" className="hover:text-primary-400 transition-colors">
+              </Link>
+              <Link 
+                href={`/${locale}/terms`} 
+                className="hover:text-primary-400 transition-colors"
+              >
                 {locale === 'zh' && '使用条款'}
                 {locale === 'ja' && '利用規約'}
                 {locale === 'en' && 'Terms of Use'}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

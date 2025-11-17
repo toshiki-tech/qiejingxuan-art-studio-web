@@ -43,23 +43,39 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 <h3 className="text-lg font-semibold text-neutral-700 mb-2">
                   {t('info.phone')}
                 </h3>
-                <p className="text-neutral-600">080-2088-0426</p>
+                <p className="text-neutral-600">080-1234-5678</p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-neutral-700 mb-2">
                   {t('info.address')}
                 </h3>
                 <p className="text-neutral-600">
-                  {locale === 'zh' && '日本东京都港区六本木 7-22-2'}
-                  {locale === 'ja' && '〒106-0032 東京都港区六本木7-22-2'}
-                  {locale === 'en' && '7-22-2 Roppongi, Minato-ku, Tokyo 106-0032, Japan'}
+                  {locale === 'zh' && '日本东京都港区六本木 7-22-6'}
+                  {locale === 'ja' && '〒106-0032 東京都港区六本木7-22-6'}
+                  {locale === 'en' && '7-22-6 Roppongi, Minato-ku, Tokyo 106-0032, Japan'}
                 </p>
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="mt-8 h-64 bg-neutral-200 rounded-lg flex items-center justify-center">
-              <p className="text-neutral-500">Map Placeholder</p>
+            {/* Google Map */}
+            <div className="mt-8 h-64 rounded-lg overflow-hidden shadow-md">
+              <iframe
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                  locale === 'zh' 
+                    ? '日本东京都港区六本木 7-22-6'
+                    : locale === 'ja'
+                    ? '〒106-0032 東京都港区六本木7-22-6'
+                    : '7-22-6 Roppongi, Minato-ku, Tokyo 106-0032, Japan'
+                )}&hl=${locale === 'zh' ? 'zh-CN' : locale === 'ja' ? 'ja' : 'en'}&z=15&output=embed`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+                title={locale === 'zh' ? '且静轩位置地图' : locale === 'ja' ? '且静軒の位置地図' : 'Qiejingxuan Location Map'}
+              />
             </div>
           </div>
         </div>

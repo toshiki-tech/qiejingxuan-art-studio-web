@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -25,10 +26,19 @@ export default function Header() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-neutral-900">
-              且静轩
-            </span>
+          <Link 
+            href={`/${locale}`} 
+            className="flex items-center hover:opacity-80 transition-opacity duration-200"
+            aria-label="且静轩 ART STUDIO"
+          >
+            <Image
+              src="/images/logo/logo.svg"
+              alt="且静轩 ART STUDIO"
+              width={180}
+              height={56}
+              className="h-10 w-auto sm:h-12 md:h-14"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

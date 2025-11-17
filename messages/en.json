@@ -188,6 +188,8 @@
       "message": "Message",
       "messagePlaceholder": "Tell us your needs or questions",
       "file": "Attachment",
+      "chooseFile": "Choose File",
+      "noFileSelected": "No file selected",
       "fileHint": "Optional: Upload related images or files",
       "submit": "Submit",
       "submitting": "Submitting...",
@@ -221,6 +223,94 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "notFound": "Page not found"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "updateDate": "January 1, 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Qiejingxuan (hereinafter referred to as \"we\" or \"us\") values your privacy protection. This Privacy Policy explains how we collect, use, store, and protect personal information you provide when using our website."
+    },
+    "collection": {
+      "title": "Information Collection",
+      "content": "We may collect the following types of information:",
+      "item1": "Personal Information: Contact information such as name, email address, phone number",
+      "item2": "Usage Information: Browsing behavior, IP address, device information when visiting our website",
+      "item3": "Submitted Content: Messages, files submitted through contact forms",
+      "item4": "Cookie Data: Website usage data to improve user experience"
+    },
+    "use": {
+      "title": "Use of Information",
+      "content": "We use the collected information for the following purposes:",
+      "item1": "To provide and improve our services",
+      "item2": "To respond to your inquiries and requests",
+      "item3": "To send important notices and updates",
+      "item4": "To analyze website usage to optimize user experience"
+    },
+    "protection": {
+      "title": "Data Protection",
+      "content": "We employ industry-standard security measures to protect your personal information from unauthorized access, use, or disclosure. We do not sell, trade, or transfer your personal information to third parties unless we have your explicit consent or are required by law."
+    },
+    "cookies": {
+      "title": "Cookie Usage",
+      "content": "Our website uses cookies to improve user experience. You can manage cookie preferences through your browser settings. Disabling cookies may affect certain features of the website."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "content": "Under applicable data protection laws, you have the following rights:",
+      "item1": "Right of Access: To view your personal information we hold",
+      "item2": "Right of Rectification: To correct inaccurate or incomplete information",
+      "item3": "Right of Erasure: To request deletion of your personal information",
+      "item4": "Right to Object: To object to our processing of your personal information"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us through:",
+      "email": "Email"
+    }
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "lastUpdated": "Last Updated",
+    "updateDate": "January 1, 2025",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Welcome to the Qiejingxuan website. By using this website, you agree to comply with the following Terms of Use. If you do not agree to these terms, please do not use this website."
+    },
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By accessing and using the Qiejingxuan website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. We reserve the right to modify these terms at any time, and the modified terms will take effect immediately upon publication on the website."
+    },
+    "use": {
+      "title": "Use of Website",
+      "content": "You agree to use this website in a lawful and appropriate manner and comply with the following provisions:",
+      "item1": "Do not use this website for any illegal activities",
+      "item2": "Do not interfere with or disrupt the normal operation of the website",
+      "item3": "Do not access any part of the website without authorization",
+      "item4": "Do not upload or transmit any malware, viruses, or harmful code"
+    },
+    "ip": {
+      "title": "Intellectual Property",
+      "content": "All content on this website, including but not limited to text, images, logos, designs, software, etc., is the intellectual property of Qiejingxuan or its licensors and is protected by copyright, trademark, and other intellectual property laws. No content may be copied, modified, distributed, or used without explicit written permission."
+    },
+    "userContent": {
+      "title": "User Submitted Content",
+      "content": "Any content submitted through this website (including but not limited to messages, files, images, etc.) will be considered non-confidential and non-proprietary. You grant Qiejingxuan a worldwide, royalty-free, irrevocable license to use, copy, modify, distribute, and display such content."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "content": "Qiejingxuan shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use this website. We strive to ensure the accuracy of website information but do not guarantee the completeness and accuracy of all information."
+    },
+    "changes": {
+      "title": "Changes to Terms",
+      "content": "We reserve the right to modify these Terms of Use at any time. Significant changes will be notified in a prominent location on the website. Continued use of this website indicates your acceptance of the modified terms."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about these Terms of Use, please contact us through:",
+      "email": "Email"
+    }
   }
 }
 

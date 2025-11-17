@@ -5,7 +5,7 @@ import { Locale } from '@/lib/types';
 
 export default async function CommissionsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations('commissions');
+  const t = await getTranslations({ locale, namespace: 'commissions' });
 
   const steps = [
     { number: 1, key: 'step1', icon: '💬' },

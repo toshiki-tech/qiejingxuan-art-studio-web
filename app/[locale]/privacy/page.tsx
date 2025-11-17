@@ -3,7 +3,7 @@ import { Locale } from '@/lib/types';
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations('privacy');
+  const t = await getTranslations({ locale, namespace: 'privacy' });
 
   return (
     <div className="py-20 bg-neutral-50 min-h-screen">

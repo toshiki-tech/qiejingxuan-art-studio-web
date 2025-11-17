@@ -11,7 +11,7 @@ import { Locale } from '@/lib/types';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations();
+  const t = await getTranslations({ locale });
 
   const featuredArtists = artists.slice(0, 5);
   const featuredWorks = artworks.slice(0, 6);

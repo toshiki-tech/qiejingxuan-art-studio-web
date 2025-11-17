@@ -5,9 +5,13 @@ import WorksGallery from '@/components/WorksGallery';
 import WorksHero from '@/components/WorksHero';
 import { Locale } from '@/lib/types';
 
+export function generateStaticParams() {
+  return [{ locale: 'zh' }, { locale: 'ja' }, { locale: 'en' }];
+}
+
 export default async function WorksPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations('works');
+  const t = await getTranslations({ locale, namespace: 'works' });
   const allArtworks = getAllArtworks();
 
   return (

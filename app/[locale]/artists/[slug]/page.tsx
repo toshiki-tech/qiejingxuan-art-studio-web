@@ -24,7 +24,7 @@ export default async function ArtistDetailPage({
   params: Promise<{ locale: Locale; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const t = await getTranslations('artists');
+  const t = await getTranslations({ locale, namespace: 'artists' });
   const artist = getArtistBySlug(slug);
 
   if (!artist) {

@@ -3,9 +3,13 @@ import { artists } from '@/lib/data/artists';
 import ArtistCard from '@/components/ArtistCard';
 import { Locale } from '@/lib/types';
 
+export function generateStaticParams() {
+  return [{ locale: 'zh' }, { locale: 'ja' }, { locale: 'en' }];
+}
+
 export default async function ArtistsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations('artists');
+  const t = await getTranslations({ locale, namespace: 'artists' });
 
   return (
     <div className="min-h-screen">

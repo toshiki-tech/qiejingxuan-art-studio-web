@@ -24,7 +24,7 @@ export default async function ArtworkDetailPage({
   params: Promise<{ locale: Locale; id: string }>;
 }) {
   const { locale, id } = await params;
-  const t = await getTranslations('works');
+  const t = await getTranslations({ locale, namespace: 'works' });
   const artwork = getArtworkById(id);
 
   if (!artwork) {

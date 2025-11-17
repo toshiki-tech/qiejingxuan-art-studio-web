@@ -5,7 +5,7 @@ import { Locale } from '@/lib/types';
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations('about');
+  const t = await getTranslations({ locale, namespace: 'about' });
 
   const milestones = [
     { year: '2024', key: 'milestone1' },

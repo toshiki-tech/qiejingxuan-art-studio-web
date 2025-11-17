@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 // 获取仓库名（从环境变量或默认值）
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'qiejingxuan-art-studio-web';

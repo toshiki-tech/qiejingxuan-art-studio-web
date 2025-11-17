@@ -4,7 +4,7 @@ import { Locale } from '@/lib/types';
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = await getTranslations('contact');
+  const t = await getTranslations({ locale, namespace: 'contact' });
 
   return (
     <div className="py-20 bg-neutral-50 min-h-screen">

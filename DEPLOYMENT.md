@@ -1,459 +1,145 @@
-# 部署指南
+# 部署指南 | Deployment Guide
 
-本指南将帮助您将「且静轩」网站部署到生产环境。
+本项目支持两种部署方式：
 
-## 📋 部署前检查清单
+## 方案一：Vercel 部署（推荐）⭐
 
-### 必须完成的项目
+Vercel 是 Next.js 官方推荐的部署平台，与 Next.js 完美集成，支持 SSR、ISR 和 Edge Functions。
 
-- [ ] 替换所有占位图片为实际图片
-- [ ] 更新艺术家和作品数据
-- [ ] 测试所有页面和链接
-- [ ] 测试三种语言切换
-- [ ] 测试移动端响应式
-- [ ] 配置环境变量
+### 步骤：
 
-### 推荐完成的项目
+1. **访问 [Vercel](https://vercel.com)** 并登录（可使用 GitHub 账号）
 
-- [ ] 添加网站图标（favicon）
-- [ ] 配置 SEO metadata
-- [ ] 添加 Google Analytics
-- [ ] 配置错误监控（Sentry）
-- [ ] 性能测试（Lighthouse）
+2. **导入项目**
+   - 点击 "Add New Project"
+   - 选择你的 GitHub 仓库 `qiejingxuan-art-studio-web`
+   - Vercel 会自动检测 Next.js 项目
 
-## 🚀 部署到 Vercel（推荐）
+3. **配置项目**
+   - Framework Preset: Next.js（自动检测）
+   - Root Directory: `./`（默认）
+   - Build Command: `npm run build`（默认）
+   - Output Directory: `.next`（默认）
+   - Install Command: `npm install`（默认）
 
-### 为什么选择 Vercel？
+4. **环境变量**（如果需要）
+   - 目前项目无需额外环境变量
 
-- ✅ Next.js 官方平台，零配置
-- ✅ 自动 HTTPS 和 CDN
-- ✅ 持续部署（Git 集成）
-- ✅ 免费层足够使用
+5. **部署**
+   - 点击 "Deploy"
+   - 等待构建完成（约 2-3 分钟）
+   - 部署成功后，Vercel 会提供一个 URL，例如：`https://qiejingxuan-art-studio-web.vercel.app`
 
-### 部署步骤
+6. **自定义域名**（可选）
+   - 在项目设置中可以添加自定义域名
 
-#### 1. 准备 Git 仓库
-
-```bash
-# 初始化 Git（如果还没有）
-git init
-
-# 添加所有文件
-git add .
-
-# 提交
-git commit -m "Initial commit: Qiejingxuan Art Studio"
-
-# 连接到 GitHub
-git remote add origin https://github.com/your-username/qiejingxuan-art-studio.git
-git branch -M main
-git push -u origin main
-```
-
-#### 2. 导入到 Vercel
-
-1. 访问 https://vercel.com
-2. 点击 "New Project"
-3. 导入 GitHub 仓库
-4. Vercel 会自动检测 Next.js
-5. 点击 "Deploy"
-
-#### 3. 配置环境变量（可选）
-
-在 Vercel 项目设置中添加：
-
-```
-RESEND_API_KEY=your_api_key_here
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-```
-
-#### 4. 配置自定义域名（可选）
-
-1. 在 Vercel 项目设置中找到 "Domains"
-2. 添加您的域名
-3. 按照指示配置 DNS
-
-## 🌐 部署到 Netlify
-
-### 部署步骤
-
-#### 1. 准备代码
-
-确保 Git 仓库已推送到 GitHub/GitLab
-
-#### 2. 导入到 Netlify
-
-1. 访问 https://netlify.com
-2. 点击 "New site from Git"
-3. 选择仓库
-4. 配置构建设置：
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-
-#### 3. 添加配置文件
-
-创建 `netlify.toml`：
-
-```toml
-[build]
-  command = "npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-```
-
-## 🐳 使用 Docker 部署
-
-### Dockerfile
-
-创建 `Dockerfile`：
-
-```dockerfile
-FROM node:20-alpine AS base
-
-# 安装依赖
-FROM base AS deps
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
-
-# 构建
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
-RUN npm run build
-
-# 运行
-FROM base AS runner
-WORKDIR /app
-ENV NODE_ENV production
-
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-
-EXPOSE 3000
-ENV PORT 3000
-
-CMD ["node", "server.js"]
-```
-
-### 构建和运行
-
-```bash
-# 构建镜像
-docker build -t qiejingxuan-art-studio .
-
-# 运行容器
-docker run -p 3000:3000 qiejingxuan-art-studio
-```
-
-## ☁️ 部署到云服务器
-
-### 使用 PM2（适用于 VPS/服务器）
-
-#### 1. 服务器准备
-
-```bash
-# 安装 Node.js 20+
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# 安装 PM2
-sudo npm install -g pm2
-```
-
-#### 2. 部署代码
-
-```bash
-# 克隆代码
-git clone https://github.com/your-username/qiejingxuan-art-studio.git
-cd qiejingxuan-art-studio
-
-# 安装依赖
-npm install
-
-# 构建
-npm run build
-```
-
-#### 3. 使用 PM2 运行
-
-创建 `ecosystem.config.js`：
-
-```javascript
-module.exports = {
-  apps: [{
-    name: 'qiejingxuan',
-    script: 'npm',
-    args: 'start',
-    env: {
-      NODE_ENV: 'production',
-      PORT: 3000
-    }
-  }]
-}
-```
-
-启动应用：
-
-```bash
-pm2 start ecosystem.config.js
-pm2 save
-pm2 startup
-```
-
-#### 4. 配置 Nginx 反向代理
-
-创建 Nginx 配置 `/etc/nginx/sites-available/qiejingxuan`：
-
-```nginx
-server {
-    listen 80;
-    server_name yourdomain.com;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
-}
-```
-
-启用配置：
-
-```bash
-sudo ln -s /etc/nginx/sites-available/qiejingxuan /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
-```
-
-#### 5. 配置 SSL（Let's Encrypt）
-
-```bash
-sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d yourdomain.com
-```
-
-## 🔧 环境变量配置
-
-### 生产环境变量
-
-创建 `.env.production`（不要提交到 Git）：
-
-```env
-# Resend（邮件服务）
-RESEND_API_KEY=re_xxxxxxxxxxxx
-
-# Sanity CMS（未来使用）
-NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
-NEXT_PUBLIC_SANITY_DATASET=production
-SANITY_API_TOKEN=your_token
-
-# 网站 URL
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
-
-# Google Analytics（可选）
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-```
-
-### 在各平台设置环境变量
-
-#### Vercel
-项目设置 → Environment Variables
-
-#### Netlify
-Site settings → Build & deploy → Environment
-
-#### 服务器
-添加到 `.env.production` 或在 PM2 配置中设置
-
-## 📊 监控和分析
-
-### Google Analytics
-
-1. 创建 GA4 属性
-2. 获取测量 ID
-3. 添加环境变量 `NEXT_PUBLIC_GA_ID`
-4. 在 `app/layout.tsx` 添加跟踪脚本
-
-### Sentry（错误监控）
-
-```bash
-npm install @sentry/nextjs
-npx @sentry/wizard@latest -i nextjs
-```
-
-### Vercel Analytics
-
-在 Vercel 项目设置中启用 Analytics（免费）
-
-## 🔄 持续部署
-
-### 设置自动部署
-
-#### Vercel/Netlify
-- 推送到 `main` 分支自动部署到生产环境
-- 推送到其他分支创建预览环境
-
-#### GitHub Actions
-
-创建 `.github/workflows/deploy.yml`：
-
-```yaml
-name: Deploy
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm run build
-      # 添加部署步骤
-```
-
-## 🧪 部署验证
-
-部署后检查：
-
-### 功能测试
-
-```bash
-# 检查所有语言
-curl https://yourdomain.com/zh
-curl https://yourdomain.com/ja
-curl https://yourdomain.com/en
-
-# 检查关键页面
-curl https://yourdomain.com/zh/artists
-curl https://yourdomain.com/zh/works
-```
-
-### 性能测试
-
-使用 Lighthouse 测试：
-```bash
-npm install -g lighthouse
-lighthouse https://yourdomain.com --view
-```
-
-目标分数：
-- Performance: > 90
-- Accessibility: > 95
-- Best Practices: > 90
-- SEO: > 90
-
-### SEO 检查
-
-- [ ] 所有页面有正确的 title 和 description
-- [ ] 实现 hreflang 标签
-- [ ] 生成 sitemap.xml
-- [ ] 配置 robots.txt
-
-## 🆘 故障排除
-
-### 构建失败
-
-```bash
-# 本地测试构建
-npm run build
-
-# 检查日志
-# 查看 Vercel/Netlify 构建日志
-```
-
-### 404 错误
-
-检查 `middleware.ts` 配置是否正确
-
-### 图片不显示
-
-检查 `next.config.ts` 中的 `images.remotePatterns`
-
-### 环境变量不生效
-
-- 确认变量名正确
-- 客户端变量必须以 `NEXT_PUBLIC_` 开头
-- 重新部署以应用新的环境变量
-
-## 📈 性能优化建议
-
-### 图片优化
-
-1. 使用 WebP 格式
-2. 提供多种尺寸
-3. 使用 CDN（Cloudinary/Vercel Image）
-
-### 代码优化
-
-```bash
-# 分析包大小
-npm run build
-npx @next/bundle-analyzer
-```
-
-### 缓存策略
-
-在 `next.config.ts` 配置：
-
-```typescript
-const nextConfig = {
-  headers: async () => [
-    {
-      source: '/images/:path*',
-      headers: [
-        {
-          key: 'Cache-Control',
-          value: 'public, max-age=31536000, immutable',
-        },
-      ],
-    },
-  ],
-};
-```
-
-## 🔐 安全检查
-
-- [ ] 环境变量不提交到 Git
-- [ ] API 密钥使用环境变量
-- [ ] HTTPS 已启用
-- [ ] 定期更新依赖
-
-```bash
-# 检查漏洞
-npm audit
-
-# 自动修复
-npm audit fix
-```
-
-## 📞 技术支持
-
-部署遇到问题？
-
-1. 查看平台文档
-   - Vercel: https://vercel.com/docs
-   - Netlify: https://docs.netlify.com
-   - Next.js: https://nextjs.org/docs
-
-2. 检查构建日志
-
-3. 联系开发团队
+### 优势：
+- ✅ 零配置，自动部署
+- ✅ 支持 SSR、ISR、Edge Functions
+- ✅ 自动 HTTPS
+- ✅ 全球 CDN 加速
+- ✅ 每次 push 自动重新部署
+- ✅ 免费套餐足够使用
 
 ---
 
-**祝您部署顺利！** 🚀
+## 方案二：GitHub Pages 部署
 
+GitHub Pages 只支持静态网站，需要将 Next.js 项目配置为静态导出。
+
+### 前置条件：
+
+1. **启用 GitHub Pages**
+   - 进入仓库 Settings → Pages
+   - Source: 选择 "GitHub Actions"
+
+2. **配置静态导出**
+
+   需要修改 `next.config.ts` 以支持静态导出：
+
+   ```typescript
+   import type { NextConfig } from 'next';
+   import createNextIntlPlugin from 'next-intl/plugin';
+
+   const withNextIntl = createNextIntlPlugin();
+
+   const nextConfig: NextConfig = {
+     output: 'export', // 启用静态导出
+     basePath: process.env.NODE_ENV === 'production' ? '/qiejingxuan-art-studio-web' : '', // 替换为你的仓库名
+     images: {
+       unoptimized: true, // GitHub Pages 不支持 Next.js Image 优化
+       remotePatterns: [
+         {
+           protocol: 'https',
+           hostname: '**',
+         },
+       ],
+     },
+   };
+
+   export default withNextIntl(nextConfig);
+   ```
+
+3. **更新 package.json**
+
+   添加导出脚本：
+
+   ```json
+   {
+     "scripts": {
+       "export": "next build"
+     }
+   }
+   ```
+
+4. **GitHub Actions 工作流**
+
+   已创建 `.github/workflows/deploy.yml`，会自动：
+   - 构建项目
+   - 生成静态文件
+   - 部署到 GitHub Pages
+
+5. **访问网站**
+
+   部署完成后，访问：
+   ```
+   https://[你的用户名].github.io/qiejingxuan-art-studio-web/
+   ```
+
+### 注意事项：
+
+- ⚠️ GitHub Pages 只支持静态导出，不支持 SSR
+- ⚠️ 图片优化功能会被禁用
+- ⚠️ 某些 Next.js 功能可能不可用
+- ⚠️ 需要配置 `basePath` 以匹配仓库名
+
+---
+
+## 推荐方案对比
+
+| 特性 | Vercel | GitHub Pages |
+|------|--------|--------------|
+| 配置难度 | ⭐ 简单 | ⭐⭐⭐ 复杂 |
+| 功能支持 | ✅ 完整 Next.js 功能 | ⚠️ 仅静态导出 |
+| 性能 | ✅ 全球 CDN | ✅ 全球 CDN |
+| 自动部署 | ✅ 是 | ✅ 是（需配置） |
+| 免费额度 | ✅ 充足 | ✅ 充足 |
+| 自定义域名 | ✅ 支持 | ✅ 支持 |
+
+**建议：优先使用 Vercel 部署，体验最佳！**
+
+---
+
+## 本地预览生产构建
+
+在部署前，可以在本地预览生产构建：
+
+```bash
+# 构建生产版本
+npm run build
+
+# 启动生产服务器
+npm start
+```
+
+访问 `http://localhost:3000` 查看效果。

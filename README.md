@@ -14,6 +14,21 @@
 - ⚡ **性能优化**：基于 Next.js 15 App Router，支持 SSR 和 SSG
 - 🔧 **易于扩展**：模块化架构，便于后续接入 CMS 和其他服务
 
+## 🚀 快速部署
+
+### 方式一：Vercel 部署（推荐）⭐
+
+1. 访问 [Vercel](https://vercel.com) 并登录
+2. 点击 "Add New Project"
+3. 选择本仓库并导入
+4. 点击 "Deploy" 即可自动部署
+
+部署完成后，你会获得一个类似 `https://qiejingxuan-art-studio-web.vercel.app` 的 URL。
+
+### 方式二：GitHub Pages
+
+详细部署说明请查看 [DEPLOYMENT.md](./DEPLOYMENT.md)
+
 ## 📁 项目结构
 
 ```

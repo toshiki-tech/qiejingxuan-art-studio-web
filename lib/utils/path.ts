@@ -1,11 +1,10 @@
 /**
- * 获取带 basePath 的路径
+ * 获取 basePath
  * 在 GitHub Pages 部署时，需要包含仓库名作为 basePath
  */
 export function getBasePath(): string {
-  // 在生产环境且设置了 GITHUB_REPOSITORY 时，使用仓库名作为 basePath
+  // 客户端：从当前路径推断 basePath
   if (typeof window !== 'undefined') {
-    // 客户端：从当前路径推断 basePath
     const path = window.location.pathname;
     if (path.startsWith('/qiejingxuan-art-studio-web')) {
       return '/qiejingxuan-art-studio-web';
@@ -24,6 +23,7 @@ export function getBasePath(): string {
 
 /**
  * 为路径添加 basePath
+ * 用于图片、链接等静态资源路径
  */
 export function withBasePath(path: string): string {
   const basePath = getBasePath();

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
+import { withBasePath } from '@/lib/utils/path';
 
 /**
  * Works Hero Section - 作品集页面Hero区块
@@ -22,7 +23,7 @@ export default function WorksHero() {
       {/* 艺术画廊/展览空间背景图 - 营造专业艺术氛围 */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/works-option2.jpg"
+          src={withBasePath("/images/hero/works-option2.jpg")}
           alt="Art Gallery Background"
           fill
           priority

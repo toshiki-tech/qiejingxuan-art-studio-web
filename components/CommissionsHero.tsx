@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
+import { withBasePath } from '@/lib/utils/path';
 
 /**
  * Commissions Hero Section - 艺术定制页面Hero区块
@@ -22,7 +23,7 @@ export default function CommissionsHero() {
       {/* 艺术工作室/创作空间背景图 - 突出定制服务的专业性 */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/commissions-option1.jpg"
+          src={withBasePath("/images/hero/commissions-option1.jpg")}
           alt="Art Studio Creative Workspace Background"
           fill
           priority

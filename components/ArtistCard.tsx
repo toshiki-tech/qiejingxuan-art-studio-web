@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Artist, Locale } from '@/lib/types';
+import { withBasePath } from '@/lib/utils/path';
 
 interface ArtistCardProps {
   artist: Artist;
@@ -17,7 +18,7 @@ export default function ArtistCard({ artist, locale }: ArtistCardProps) {
       <div className="relative mb-4">
         <div className="relative w-40 h-40 mx-auto overflow-hidden rounded-full border-4 border-white shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:border-primary-200">
           <Image
-            src={artist.avatar}
+            src={withBasePath(artist.avatar)}
             alt={artist.name[locale]}
             fill
             className="object-cover group-hover:scale-110 transition-transform duration-500 grayscale-[15%] group-hover:grayscale-0"

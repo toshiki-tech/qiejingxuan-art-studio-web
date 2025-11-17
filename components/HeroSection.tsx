@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
+import { withBasePath } from '@/lib/utils/path';
 
 /**
  * Hero Section - 精心设计的艺术工作室首页Hero区块
@@ -23,7 +24,7 @@ export default function HeroSection() {
       {/* 艺术工作室背景图 - 东方美学风格 */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/home-option1.jpg"
+          src={withBasePath("/images/hero/home-option1.jpg")}
           alt="Art Studio Background"
           fill
           priority

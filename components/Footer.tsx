@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
+import { withBasePath } from '@/lib/utils/path';
 
 export default function Footer() {
   const t = useTranslations();
@@ -31,7 +32,7 @@ export default function Footer() {
               aria-label="且静轩 ART STUDIO"
             >
               <Image
-                src="/images/logo/logo-light.svg"
+                src={withBasePath("/images/logo/logo-light.svg")}
                 alt="且静轩 ART STUDIO"
                 width={180}
                 height={56}

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Artwork, Locale } from '@/lib/types';
 import { getArtistBySlug } from '@/lib/data/artists';
+import { withBasePath } from '@/lib/utils/path';
 
 interface ArtworkCardProps {
   artwork: Artwork;
@@ -18,7 +19,7 @@ export default function ArtworkCard({ artwork, locale }: ArtworkCardProps) {
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100">
         <Image
-          src={artwork.image}
+          src={withBasePath(artwork.image)}
           alt={artwork.title[locale]}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -34,7 +35,7 @@ export default function ArtworkCard({ artwork, locale }: ArtworkCardProps) {
           <div className="flex items-center gap-2 mb-3">
             <div className="relative w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
               <Image
-                src={artist.avatar}
+                src={withBasePath(artist.avatar)}
                 alt={artist.name[locale]}
                 fill
                 className="object-cover"

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
+import { withBasePath } from '@/lib/utils/path';
 
 /**
  * About Hero Section - 关于我们页面Hero区块
@@ -22,7 +23,7 @@ export default function AboutHero() {
       {/* 艺术交流/国际合作背景图 - 体现"连接艺术家与世界"主题 */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/about-option4.jpg"
+          src={withBasePath("/images/hero/about-option4.jpg")}
           alt="Artists Connecting with the World Background"
           fill
           priority

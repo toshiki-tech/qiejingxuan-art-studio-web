@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import AboutHero from '@/components/AboutHero';
 import { Locale } from '@/lib/types';
+import { withBasePath } from '@/lib/utils/path';
 
 export const dynamic = 'force-static';
 
@@ -50,7 +51,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </div>
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/about/art-space.jpg"
+                  src={withBasePath("/images/about/art-space.jpg")}
                   alt={t('introduction.imageAlt')}
                   fill
                   className="object-cover"

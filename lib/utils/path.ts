@@ -12,10 +12,16 @@ export function getBasePath(): string {
     return '';
   }
   
-  // 服务端：从环境变量获取
+  // 服务端：从环境变量获取（构建时）
+  // 在 GitHub Actions 构建时，GITHUB_REPOSITORY 会被设置
+  // 在本地开发时，NODE_ENV 不是 production，返回空字符串
   if (process.env.NODE_ENV === 'production') {
-    const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'qiejingxuan-art-studio-web';
-    return `/${repoName}`;
+    const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+    if (repoName) {
+      return `/${repoName}`;
+    }
+    // 如果没有环境变量，默认使用仓库名（用于本地生产构建测试）
+    return '/qiejingxuan-art-studio-web';
   }
   
   return '';

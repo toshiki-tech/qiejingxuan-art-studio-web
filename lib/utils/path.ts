@@ -3,8 +3,13 @@
  * 在 GitHub Pages 部署时，需要包含仓库名作为 basePath
  */
 export function getBasePath(): string {
-  // 客户端：从当前路径推断 basePath
+  // 客户端：优先使用 NEXT_PUBLIC_BASE_PATH 环境变量，否则从路径推断
   if (typeof window !== 'undefined') {
+    // 优先使用环境变量（在构建时注入）
+    if (process.env.NEXT_PUBLIC_BASE_PATH) {
+      return process.env.NEXT_PUBLIC_BASE_PATH;
+    }
+    // 从当前路径推断 basePath
     const path = window.location.pathname;
     if (path.startsWith('/qiejingxuan-art-studio-web')) {
       return '/qiejingxuan-art-studio-web';

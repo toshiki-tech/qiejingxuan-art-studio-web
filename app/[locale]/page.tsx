@@ -8,6 +8,7 @@ import ArtistCard from '@/components/ArtistCard';
 import ArtworkCard from '@/components/ArtworkCard';
 import HeroSection from '@/components/HeroSection';
 import { Locale } from '@/lib/types';
+import { withBasePath } from '@/lib/utils/path';
 
 export const dynamic = 'force-static';
 
@@ -48,7 +49,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
               >
                 <div className="relative aspect-video overflow-hidden">
                   <Image
-                    src={item.image}
+                    src={withBasePath(item.image)}
                     alt={item.title[locale]}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"

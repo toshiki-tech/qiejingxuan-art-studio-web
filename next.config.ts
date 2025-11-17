@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath, // 在客户端也可以访问 basePath
+  },
 };
 
 export default withNextIntl(nextConfig);

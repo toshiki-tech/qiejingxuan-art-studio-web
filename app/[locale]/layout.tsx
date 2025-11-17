@@ -28,7 +28,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <body className="antialiased">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">{children}</main>

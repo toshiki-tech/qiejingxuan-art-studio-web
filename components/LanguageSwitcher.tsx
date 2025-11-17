@@ -3,7 +3,6 @@
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
-import { getBasePath } from '@/lib/utils/path';
 
 const languages = [
   { code: 'zh', name: '中文', flag: '🇨🇳', label: 'CN' },

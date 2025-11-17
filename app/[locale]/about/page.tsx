@@ -180,7 +180,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                       <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                       <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl">
                         <Image
-                          src={member.image}
+                          src={withBasePath(member.image)}
                           alt={t(`team.${member.key}.name`)}
                           fill
                           className="object-cover"

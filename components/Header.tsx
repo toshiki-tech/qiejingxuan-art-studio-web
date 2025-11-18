@@ -35,7 +35,7 @@ export default function Header() {
             <Image
               src={withBasePath("/images/logo/logo.svg")}
               alt="且静轩 ART STUDIO"
-              width={180}
+              width={200}
               height={56}
               className="h-10 w-auto sm:h-12 md:h-14"
               priority

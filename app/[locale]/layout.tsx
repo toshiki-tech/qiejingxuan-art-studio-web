@@ -26,17 +26,20 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale}>
-      <body className="antialiased">
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang = '${locale}';`,
+        }}
+      />
+      <NextIntlClientProvider messages={messages} locale={locale}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
+      </NextIntlClientProvider>
+    </>
   );
 }
 

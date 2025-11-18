@@ -6,9 +6,9 @@ export const metadata: Metadata = {
 
 export default function RootPage() {
   return (
-    <html>
+    <>
       <head>
-        <meta httpEquiv="refresh" content="0; url=/qiejingxuan-art-studio-web/zh" />
+        <meta httpEquiv="refresh" content="0; url=/zh" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -21,19 +21,17 @@ export default function RootPage() {
           }}
         />
       </head>
-      <body>
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="text-center">
-            <p className="text-neutral-600">正在跳转到中文页面...</p>
-            <p className="text-sm text-neutral-400 mt-2">
-              <a href="/qiejingxuan-art-studio-web/zh" className="text-primary-600 hover:underline">
-                如果未自动跳转，请点击这里
-              </a>
-            </p>
-          </div>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <p className="text-neutral-600">正在跳转到中文页面...</p>
+          <p className="text-sm text-neutral-400 mt-2">
+            <a href="/zh" className="text-primary-600 hover:underline">
+              如果未自动跳转，请点击这里
+            </a>
+          </p>
         </div>
-      </body>
-    </html>
+      </div>
+    </>
   );
 }
 

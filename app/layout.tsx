@@ -1,11 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
 
 export const metadata: Metadata = {
   title: '且静轩 Qiejingxuan Art Studio',
@@ -17,6 +11,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  // Next.js 15 要求根布局必须包含 html 和 body 标签
+  // lang 属性会在 [locale]/layout.tsx 中通过客户端脚本动态更新
+  return (
+    <html lang="zh">
+      <body className="antialiased">{children}</body>
+    </html>
+  );
 }
 
